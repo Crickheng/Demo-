@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="db.properties">
+		<!--  <property name="db.driver" value="com.mysql.jdbc.Driver"/>
+		<property name="db.url" value="jdbc:mysql://localhost:3306/ssmdemo"/>
+		<property name="db.user" value="root"/>
+		<property name="db.pwd" value="root"/> -->
+	</properties>
+	<!-- 别名 -->
+	<typeAliases>
+		<typeAlias alias="role" type="com.crick.pojo.Role"/>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="${db.driver}"/>
+				<property name="url" value="${db.url}"/>
+				<property name="username" value="${db.user}"/>
+				<property name="password" value="${db.pwd}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper class="com.crick.mapper.RoleMapper"/>
+	</mappers>
+</configuration>
